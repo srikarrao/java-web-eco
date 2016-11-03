@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<!-- Configuring model class to create a database table called APPLICATION_IO_LOGGING -->
+	<class name="com.wpl.hibernate.model.ApplicationIOLogging" table="APPLICATION_IO_LOGGING"
+		catalog="wpl_db">
+
+		<!-- Creates an auto-generating primary key column -->
+		<id name="logTransId" type="java.lang.Integer">
+			<column name="LOG_TRANS_ID" />
+			<generator class="identity" />
+		</id>
+
+		<!-- Creates a column named SOURCE -->
+		<property name="source" type="string">
+			<column name="SOURCE" />
+		</property>
+
+		<!-- Creates a column named REQ_DATA -->
+		<property name="requestData" type="string">
+			<column name="REQ_DATA" />
+		</property>
+
+		<!-- Creates a column named DESTINATION -->
+		<property name="destination" type="string">
+			<column name="DESTINATION" />
+		</property>
+
+		<!-- Creates a column named RESP_DATA -->
+		<property name="responseData" type="string">
+			<column name="RESP_DATA" />
+		</property>
+
+		<!-- Creates a column named LOG_TRANS_DATE -->
+		<property name="logTransDate" type="date">
+			<column name="LOG_TRANS_DATE" />
+		</property>
+	</class>
+</hibernate-mapping>

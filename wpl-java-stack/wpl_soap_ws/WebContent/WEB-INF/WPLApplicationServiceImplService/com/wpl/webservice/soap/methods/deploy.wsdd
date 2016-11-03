@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from WPLApplicationServiceImplService WSDL service -->
+
+  <service name="WPLApplicationServiceImpl" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://methods.soap.webservice.wpl.com"/>
+      <parameter name="wsdlServiceElement" value="WPLApplicationServiceImplService"/>
+      <parameter name="schemaQualified" value="http://requests.model.vo.wpl.com,http://methods.soap.webservice.wpl.com,http://responses.model.vo.wpl.com"/>
+      <parameter name="wsdlServicePort" value="WPLApplicationServiceImpl"/>
+      <parameter name="className" value="com.wpl.webservice.soap.methods.WPLApplicationServiceImpl"/>
+      <parameter name="wsdlPortType" value="WPLApplicationServiceImpl"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://methods.soap.webservice.wpl.com" xmlns:retNS="http://methods.soap.webservice.wpl.com" xmlns:rtns="http://responses.model.vo.wpl.com" name="removeApplication" qname="operNS:removeApplication" returnQName="retNS:removeApplicationReturn" returnType="rtns:WPLPurgeApplicationResponseVO" soapAction="">
+        <parameter xmlns:pns="http://methods.soap.webservice.wpl.com" xmlns:tns="http://requests.model.vo.wpl.com" qname="pns:purgeApplicationRequestVO" type="tns:WPLPurgeApplicationRequestVO"/>
+      </operation>
+      <operation xmlns:operNS="http://methods.soap.webservice.wpl.com" xmlns:retNS="http://methods.soap.webservice.wpl.com" xmlns:rtns="http://responses.model.vo.wpl.com" name="retrieveApplicationStatus" qname="operNS:retrieveApplicationStatus" returnQName="retNS:retrieveApplicationStatusReturn" returnType="rtns:WPLRetrieveApplicationStatusResponseVO" soapAction="">
+        <parameter xmlns:pns="http://methods.soap.webservice.wpl.com" xmlns:tns="http://requests.model.vo.wpl.com" qname="pns:applicationStatusRequestVO" type="tns:WPLRetrieveApplicationStatusRequestVO"/>
+      </operation>
+      <operation xmlns:operNS="http://methods.soap.webservice.wpl.com" xmlns:retNS="http://methods.soap.webservice.wpl.com" xmlns:rtns="http://responses.model.vo.wpl.com" name="generateApplication" qname="operNS:generateApplication" returnQName="retNS:generateApplicationReturn" returnType="rtns:WPLGenerateApplicationResponseVO" soapAction="">
+        <parameter xmlns:pns="http://methods.soap.webservice.wpl.com" xmlns:tns="http://requests.model.vo.wpl.com" qname="pns:generateApplicationRequestVO" type="tns:WPLGenerateApplicationRequestVO"/>
+      </operation>
+      <parameter name="allowedMethods" value="retrieveApplicationStatus removeApplication generateApplication"/>
+
+      <typeMapping xmlns:ns="http://responses.model.vo.wpl.com" qname="ns:WPLRetrieveApplicationStatusResponseVO" type="java:com.wpl.vo.model.responses.WPLRetrieveApplicationStatusResponseVO" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://requests.model.vo.wpl.com" qname="ns:WPLGenerateApplicationRequestVO" type="java:com.wpl.vo.model.requests.WPLGenerateApplicationRequestVO" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://responses.model.vo.wpl.com" qname="ns:WPLGenerateApplicationResponseVO" type="java:com.wpl.vo.model.responses.WPLGenerateApplicationResponseVO" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://responses.model.vo.wpl.com" qname="ns:WPLPurgeApplicationResponseVO" type="java:com.wpl.vo.model.responses.WPLPurgeApplicationResponseVO" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://requests.model.vo.wpl.com" qname="ns:WPLRetrieveApplicationStatusRequestVO" type="java:com.wpl.vo.model.requests.WPLRetrieveApplicationStatusRequestVO" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://requests.model.vo.wpl.com" qname="ns:WPLPurgeApplicationRequestVO" type="java:com.wpl.vo.model.requests.WPLPurgeApplicationRequestVO" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>

@@ -1,0 +1,18 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:met="http://methods.soap.ws.wpl.com" xmlns:req="http://requests.model.vo.wpl.com">
+	<soapenv:Header />
+	<soapenv:Body>
+		<met:generateApplication>
+			<met:generateApplicationRequestVO>
+				<req:age>19</req:age>
+				<req:category>GEN</req:category>
+				<req:date>2016-05-12T23:00:00.000Z</req:date>
+				<req:employeeId>EV85612</req:employeeId>
+				<req:name>RPant</req:name>
+				<req:ssn>122145450</req:ssn>
+				<req:status>PENDING</req:status>
+				<req:workExperience>1</req:workExperience>
+			</met:generateApplicationRequestVO>
+		</met:generateApplication>
+	</soapenv:Body>
+</soapenv:Envelope>

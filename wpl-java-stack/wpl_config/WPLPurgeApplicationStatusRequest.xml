@@ -1,0 +1,11 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:met="http://methods.soap.ws.wpl.com" xmlns:req="http://requests.model.vo.wpl.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <met:removeApplication>
+         <met:purgeApplicationRequestVO>
+            <req:appId>20011</req:appId>
+            <req:date>2016-05-12T23:00:00.000Z</req:date>
+         </met:purgeApplicationRequestVO>
+      </met:removeApplication>
+   </soapenv:Body>
+</soapenv:Envelope>

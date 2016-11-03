@@ -1,0 +1,14 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:met="http://methods.soap.ws.wpl.com" xmlns:req="http://requests.model.vo.wpl.com">
+	<soapenv:Header />
+	<soapenv:Body>
+		<met:retrieveApplicationStatus>
+			<met:applicationStatusRequestVO>
+				<req:appId>20011</req:appId>
+				<req:date>2016-05-12T23:00:00.000Z</req:date>
+				<req:employeeId>EV85612</req:employeeId>
+				<req:ssn>122145450</req:ssn>
+			</met:applicationStatusRequestVO>
+		</met:retrieveApplicationStatus>
+	</soapenv:Body>
+</soapenv:Envelope>

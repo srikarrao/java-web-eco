@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<!-- Configuring model class to create a database table called APPLICATION_DETAILS -->
+	<class name="com.wpl.hibernate.model.ApplicationDetails" table="APPLICATION_DETAILS"
+		catalog="wpl_db">
+
+		<!-- Creates an auto-generating primary key column -->
+		<id name="applicationId" type="java.lang.Integer">
+			<column name="APP_ID" />
+			<generator class="identity" />
+		</id>
+
+		<!-- Creates a column named CATEGORY -->
+		<property name="category" type="string">
+			<column name="CATEGORY" length="3" not-null="true" />
+		</property>
+
+		<!-- Creates a column named APP_STATUS -->
+		<property name="applicationStatus" type="string">
+			<column name="APP_STATUS" />
+		</property>
+
+		<!-- Creates a column named Name -->
+		<property name="name" type="string">
+			<column name="NAME" length="30" not-null="true" />
+		</property>
+
+		<!-- Creates a column named SSN -->
+		<property name="ssn" type="string">
+			<column name="SSN" length="9" not-null="true" unique="true" />
+		</property>
+
+		<!-- Creates a column named AGE -->
+		<property name="age" type="java.lang.Integer">
+			<column name="AGE" />
+		</property>
+
+		<!-- Creates a column named WORK_EXP -->
+		<property name="workExperience" type="java.lang.Integer">
+			<column name="WORK_EXP" />
+		</property>
+
+		<!-- Creates a column named APPLIED_DATE -->
+		<property name="appliedDate" type="date">
+			<column name="APPLIED_DATE" />
+		</property>
+	</class>
+</hibernate-mapping>

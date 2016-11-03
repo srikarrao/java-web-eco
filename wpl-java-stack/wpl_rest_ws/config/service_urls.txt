@@ -1,0 +1,14 @@
+POST url:
+http://localhost:8080/wpl_rest_ws/wpl-rest/wplApplication/publishApplications
+
+publishApplications_request.json:
+{
+  "appId": 120,
+  "years": 3,
+  "startDate": 1356073200000,
+  "status": "Approved",
+  "statusMessage": "Change of status from October"
+}
+
+GET url (path-param):
+http://localhost:8080/wpl_rest_ws/wpl-rest/wplApplication/getStatus/1220

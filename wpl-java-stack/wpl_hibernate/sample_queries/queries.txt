@@ -1,0 +1,17 @@
+use wpl_db;
+show tables;
+
+create database wpl_db;
+select * from application_details;
+select * from application_io_logging;
+
+delete from application_details;
+delete from application_io_logging;
+
+Utilities
+-------------
+SELECT * FROM mysql.user;
+
+SET SQL_SAFE_UPDATES = 0;
+UPDATE mysql.user SET Password=PASSWORD('admin') WHERE User='wpluser';
+FLUSH PRIVILEGES;

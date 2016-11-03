@@ -1,0 +1,77 @@
+<ns1:deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns1="http://xml.apache.org/axis/wsdd/">
+ <ns1:globalConfiguration>
+  <ns1:parameter name="sendMultiRefs" value="true"/>
+  <ns1:parameter name="disablePrettyXML" value="true"/>
+  <ns1:parameter name="adminPassword" value="admin"/>
+  <ns1:parameter name="attachments.Directory" value="C:\Users\SrikarRao\Documents\WPL_WS\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\wpl_soap_ws\WEB-INF\attachments"/>
+  <ns1:parameter name="dotNetSoapEncFix" value="true"/>
+  <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
+  <ns1:parameter name="sendXMLDeclaration" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:requestFlow>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="session"/>
+   </ns1:handler>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="request"/>
+    <ns1:parameter name="extension" value=".jwr"/>
+   </ns1:handler>
+  </ns1:requestFlow>
+ </ns1:globalConfiguration>
+ <ns1:handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
+ <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+ <ns1:service name="AdminService" provider="java:MSG">
+  <ns1:parameter name="allowedMethods" value="AdminService"/>
+  <ns1:parameter name="enableRemoteAdmin" value="false"/>
+  <ns1:parameter name="className" value="org.apache.axis.utils.Admin"/>
+  <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
+ </ns1:service>
+ <ns1:service name="Version" provider="java:RPC">
+  <ns1:parameter name="allowedMethods" value="getVersion"/>
+  <ns1:parameter name="className" value="org.apache.axis.Version"/>
+ </ns1:service>
+ <ns1:service name="WPLApplicationServiceImpl" provider="java:RPC" style="wrapped" use="literal">
+  <ns3:operation name="generateApplication" qname="ns1:generateApplication" returnQName="ns1:generateApplicationReturn" returnType="ns2:WPLGenerateApplicationResponseVO" soapAction="" xmlns:ns1="http://methods.soap.ws.wpl.com" xmlns:ns2="http://responses.model.vo.wpl.com" xmlns:ns3="http://xml.apache.org/axis/wsdd/">
+   <ns4:parameter qname="ns1:generateApplicationRequestVO" type="ns3:WPLGenerateApplicationRequestVO" xmlns:ns3="http://requests.model.vo.wpl.com" xmlns:ns4="http://xml.apache.org/axis/wsdd/"/>
+  </ns3:operation>
+  <ns1:operation name="retrieveApplicationStatus" qname="ns4:retrieveApplicationStatus" returnQName="ns4:retrieveApplicationStatusReturn" returnType="ns5:WPLRetrieveApplicationStatusResponseVO" soapAction="" xmlns:ns4="http://methods.soap.ws.wpl.com" xmlns:ns5="http://responses.model.vo.wpl.com">
+   <ns1:parameter qname="ns4:applicationStatusRequestVO" type="ns6:WPLRetrieveApplicationStatusRequestVO" xmlns:ns6="http://requests.model.vo.wpl.com"/>
+  </ns1:operation>
+  <ns1:operation name="removeApplication" qname="ns7:removeApplication" returnQName="ns7:removeApplicationReturn" returnType="ns8:WPLPurgeApplicationResponseVO" soapAction="" xmlns:ns7="http://methods.soap.ws.wpl.com" xmlns:ns8="http://responses.model.vo.wpl.com">
+   <ns1:parameter qname="ns7:purgeApplicationRequestVO" type="ns9:WPLPurgeApplicationRequestVO" xmlns:ns9="http://requests.model.vo.wpl.com"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="retrieveApplicationStatus removeApplication generateApplication"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="WPLApplicationServiceImpl"/>
+  <ns1:parameter name="className" value="com.wpl.ws.soap.methods.WPLApplicationServiceImpl"/>
+  <ns1:parameter name="wsdlServicePort" value="WPLApplicationServiceImpl"/>
+  <ns1:parameter name="schemaQualified" value="http://requests.model.vo.wpl.com,http://responses.model.vo.wpl.com,http://methods.soap.ws.wpl.com"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://methods.soap.ws.wpl.com"/>
+  <ns1:parameter name="wsdlServiceElement" value="WPLApplicationServiceImplService"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns10:WPLRetrieveApplicationStatusResponseVO" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.wpl.vo.model.responses.WPLRetrieveApplicationStatusResponseVO" xmlns:ns10="http://responses.model.vo.wpl.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns11:WPLGenerateApplicationRequestVO" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.wpl.vo.model.requests.WPLGenerateApplicationRequestVO" xmlns:ns11="http://requests.model.vo.wpl.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns12:WPLGenerateApplicationResponseVO" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.wpl.vo.model.responses.WPLGenerateApplicationResponseVO" xmlns:ns12="http://responses.model.vo.wpl.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns13:WPLPurgeApplicationResponseVO" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.wpl.vo.model.responses.WPLPurgeApplicationResponseVO" xmlns:ns13="http://responses.model.vo.wpl.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns14:WPLRetrieveApplicationStatusRequestVO" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.wpl.vo.model.requests.WPLRetrieveApplicationStatusRequestVO" xmlns:ns14="http://requests.model.vo.wpl.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns15:WPLPurgeApplicationRequestVO" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.wpl.vo.model.requests.WPLPurgeApplicationRequestVO" xmlns:ns15="http://requests.model.vo.wpl.com"/>
+ </ns1:service>
+ <ns1:transport name="http">
+  <ns1:requestFlow>
+   <ns1:handler type="URLMapper"/>
+   <ns1:handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+  </ns1:requestFlow>
+  <ns1:parameter name="qs:list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs:wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+  <ns1:parameter name="qs.list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs.method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs:method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs.wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+ </ns1:transport>
+ <ns1:transport name="local">
+  <ns1:responseFlow>
+   <ns1:handler type="LocalResponder"/>
+  </ns1:responseFlow>
+ </ns1:transport>
+</ns1:deployment>

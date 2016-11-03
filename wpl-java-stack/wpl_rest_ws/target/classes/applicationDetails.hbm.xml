@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.wpl.ws.rest.model.dto.WPLApplicationDetails"
+		table="application_details" catalog="wpl_rest">
+		<!-- <composite-id> <key-property name="applicationId" column="APP_ID" 
+			/> </composite-id> -->
+
+		<id name="applicationId" type="java.lang.Integer">
+			<column name="APP_ID" />
+			<!-- <generator class="identity" /> -->
+		</id>
+		<many-to-one name="publisherDetails"
+			class="com.wpl.ws.rest.model.dto.WPLPublisherDetails" fetch="select">
+			<column name="PUBLISHER_ID" not-null="false" />
+		</many-to-one>
+		<property name="status" type="string">
+			<column name="APP_STATUS" />
+		</property>
+		<property name="beginDate" type="date">
+			<column name="BEGIN_DATE" />
+		</property>
+		<property name="yearsGranted" type="java.lang.Integer">
+			<column name="YEARS_GRANTED" />
+		</property>
+	</class>
+</hibernate-mapping>

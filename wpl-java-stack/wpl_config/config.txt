@@ -1,0 +1,8 @@
+	<!-- Add the below in server.xml/<GlobalNamingResources> -->
+
+    <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" global="jdbc/wpl_db" maxActive="10" maxIdle="10" maxWait="10000" minIdle="5" name="jdbc/wpl_db" password="admin" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/wpl_db" username="root"/>
+
+    <!-- Add the below in context.xml/<Context> -->
+    
+    <ResourceLink name="jdbc/wpl_db" global="jdbc/wpl_db"
+		auth="Container" type="javax.sql.DataSource" /> 

@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://methods.soap.ws.wpl.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://methods.soap.ws.wpl.com" xmlns:intf="http://methods.soap.ws.wpl.com" xmlns:tns1="http://requests.model.vo.wpl.com" xmlns:tns2="http://responses.model.vo.wpl.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://methods.soap.ws.wpl.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://responses.model.vo.wpl.com"/>
+   <import namespace="http://requests.model.vo.wpl.com"/>
+   <element name="generateApplication">
+    <complexType>
+     <sequence>
+      <element name="generateApplicationRequestVO" type="tns1:WPLGenerateApplicationRequestVO"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="generateApplicationResponse">
+    <complexType>
+     <sequence>
+      <element name="generateApplicationReturn" type="tns2:WPLGenerateApplicationResponseVO"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="retrieveApplicationStatus">
+    <complexType>
+     <sequence>
+      <element name="applicationStatusRequestVO" type="tns1:WPLRetrieveApplicationStatusRequestVO"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="retrieveApplicationStatusResponse">
+    <complexType>
+     <sequence>
+      <element name="retrieveApplicationStatusReturn" type="tns2:WPLRetrieveApplicationStatusResponseVO"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeApplication">
+    <complexType>
+     <sequence>
+      <element name="purgeApplicationRequestVO" type="tns1:WPLPurgeApplicationRequestVO"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeApplicationResponse">
+    <complexType>
+     <sequence>
+      <element name="removeApplicationReturn" type="tns2:WPLPurgeApplicationResponseVO"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://requests.model.vo.wpl.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://responses.model.vo.wpl.com"/>
+   <complexType name="WPLGenerateApplicationRequestVO">
+    <sequence>
+     <element name="age" type="xsd:int"/>
+     <element name="category" nillable="true" type="xsd:string"/>
+     <element name="date" nillable="true" type="xsd:dateTime"/>
+     <element name="employeeId" nillable="true" type="xsd:string"/>
+     <element name="name" nillable="true" type="xsd:string"/>
+     <element name="ssn" nillable="true" type="xsd:string"/>
+     <element name="status" nillable="true" type="xsd:string"/>
+     <element name="workExperience" type="xsd:int"/>
+    </sequence>
+   </complexType>
+   <complexType name="WPLRetrieveApplicationStatusRequestVO">
+    <sequence>
+     <element name="appId" type="xsd:int"/>
+     <element name="date" nillable="true" type="xsd:dateTime"/>
+     <element name="employeeId" nillable="true" type="xsd:string"/>
+     <element name="ssn" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="WPLPurgeApplicationRequestVO">
+    <sequence>
+     <element name="appId" nillable="true" type="xsd:string"/>
+     <element name="date" nillable="true" type="xsd:dateTime"/>
+    </sequence>
+   </complexType>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://responses.model.vo.wpl.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://requests.model.vo.wpl.com"/>
+   <complexType name="WPLGenerateApplicationResponseVO">
+    <sequence>
+     <element name="appId" type="xsd:int"/>
+     <element name="date" nillable="true" type="xsd:dateTime"/>
+     <element name="responseMessage" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="WPLRetrieveApplicationStatusResponseVO">
+    <sequence>
+     <element name="status" nillable="true" type="xsd:string"/>
+     <element name="statusMessage" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="WPLPurgeApplicationResponseVO">
+    <sequence>
+     <element name="acknowledgement" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="removeApplicationResponse">
+
+      <wsdl:part element="impl:removeApplicationResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="retrieveApplicationStatusRequest">
+
+      <wsdl:part element="impl:retrieveApplicationStatus" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="generateApplicationResponse">
+
+      <wsdl:part element="impl:generateApplicationResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="retrieveApplicationStatusResponse">
+
+      <wsdl:part element="impl:retrieveApplicationStatusResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeApplicationRequest">
+
+      <wsdl:part element="impl:removeApplication" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="generateApplicationRequest">
+
+      <wsdl:part element="impl:generateApplication" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="WPLApplicationServiceImpl">
+
+      <wsdl:operation name="generateApplication">
+
+         <wsdl:input message="impl:generateApplicationRequest" name="generateApplicationRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:generateApplicationResponse" name="generateApplicationResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="retrieveApplicationStatus">
+
+         <wsdl:input message="impl:retrieveApplicationStatusRequest" name="retrieveApplicationStatusRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:retrieveApplicationStatusResponse" name="retrieveApplicationStatusResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeApplication">
+
+         <wsdl:input message="impl:removeApplicationRequest" name="removeApplicationRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:removeApplicationResponse" name="removeApplicationResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="WPLApplicationServiceImplSoapBinding" type="impl:WPLApplicationServiceImpl">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="generateApplication">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="generateApplicationRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="generateApplicationResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="retrieveApplicationStatus">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="retrieveApplicationStatusRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="retrieveApplicationStatusResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeApplication">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="removeApplicationRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="removeApplicationResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="WPLApplicationServiceImplService">
+
+      <wsdl:port binding="impl:WPLApplicationServiceImplSoapBinding" name="WPLApplicationServiceImpl">
+
+         <wsdlsoap:address location="http://localhost:8080/wpl_soap_ws/services/WPLApplicationServiceImpl"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

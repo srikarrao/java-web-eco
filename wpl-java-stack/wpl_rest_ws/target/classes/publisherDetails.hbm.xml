@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25 April 2011 7:52:33 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.wpl.ws.rest.model.dto.WPLPublisherDetails"
+		table="publisher_details" catalog="wpl_rest">
+		<id name="publisherId" type="java.lang.Integer">
+			<column name="PUBLISHER_ID" />
+			<generator class="identity" />
+		</id>
+		<property name="officeName" type="string">
+			<column name="OFFICE_NAME" length="10" />
+		</property>
+
+		<set name="applicationDetails" table="application_details"
+			inverse="true" lazy="true" fetch="select">
+			<key>
+				<column name="APP_ID" not-null="false" />
+			</key>
+			<one-to-many class="com.wpl.ws.rest.model.dto.WPLApplicationDetails" />
+		</set>
+		<!-- Creates a column named APPLIED_DATE -->
+		<property name="publishedDate" type="date">
+			<column name="PUBLISHED_DATE" />
+		</property>
+	</class>
+</hibernate-mapping>
